@@ -1,0 +1,79 @@
+<!-- <div class="container-fluid">
+  <div class="row col-12 mt-5">
+    <div class="row offset-6 mt-5 mb-2 input-group">
+      <input type="text" class="form-control" [(ngModel)]="firstName" placeholder="First Name">
+    </div>
+    <div class="row offset-6 mb-2 input-group">
+      <input type="text" class="form-control" [(ngModel)]="email" placeholder="Email Id">
+    </div>
+    <div class="row offset-6 mb-2 input-group">
+      <input type="number" class="form-control" [(ngModel)]="mobileNumber" placeholder="Mobile Number">
+    </div>
+    <div class="row offset-6 mb-2 input-group">
+      <input type="password" class="form-control" [(ngModel)]="password" placeholder="Password">
+    </div>
+    <div class="row offset-6 mb-2 input-group">
+      <input type="password" class="form-control" [(ngModel)]="reEnterPassword" placeholder="Re-enter Password">
+    </div>
+
+  </div>
+  <div class="row offset-6">
+    <button type="button" (click)="Create()">Create</button>
+    <button type="button" [routerLink]="['/login']">Back</button>
+    <a [routerLink]="['/login']">LogIn</a>
+  </div>
+
+</div> -->
+
+
+
+
+<div class="container-fluid page-background">
+  <!-- <img src="../../assets/image/login.jpeg" alt=""> -->
+
+  <div class="row offset-2 col-1 box1">
+    <div class="row col-12 mt-5">
+    </div>
+  </div>
+  <div class="row offset-3 col-1 box">
+    <div class="row col-12 mt-5">
+    </div>
+  </div>
+  <div class="row offset-3 col-5 inside-container">
+    <div class="row col-12 mt-2">
+      <div class="offset-6">*All fields required</div>
+      <div class="row offset-6 mb-2 input-group">
+        <input type="text" class="form-control" [(ngModel)]="firstName" placeholder="First Name">
+      </div>
+      <div class="row offset-6 mb-2 password-field input-group">
+        <input type="text" class="form-control" (keyup)="checkEmail()" [(ngModel)]="email" placeholder="Email Id">
+      </div>
+      <div class="row offset-6 mb-2 password-field input-group">
+        <input type="number" class="form-control" [(ngModel)]="mobileNumber" placeholder="Mobile Number">
+      </div>
+      <div class="row offset-6 mb-2 password-field input-group">
+        <input type="password" class="form-control" (keyup)="checkPassword()" [(ngModel)]="password" placeholder="Password">
+      </div>
+      <div class="row offset-6 mb-2 password-field input-group">
+        <input type="password" class="form-control" (keyup)="checkPassword()" [(ngModel)]="reEnterPassword" placeholder="Re-enter Password">
+      </div>
+      <span *ngIf="!confirmTrue && reEnterPassword" style="color:red; margin-left: 23rem;">*Password don't match or length must be >4</span>
+
+    </div>
+    <div class="row offset-6 mt-2 mb-2">
+      <button type="button" class="btn login-button" [disabled]="!firstName || !email || !mobileNumber || !password || !reEnterPassword || !confirmTrue" (click)="Create()">Create</button>
+      <!-- <button type="button" class="btn" [routerLink]="['/login']">Back</button> -->
+      <a type="button" class="btn" [routerLink]="['/login']">LogIn</a>
+    </div>
+  </div>
+
+  <div class="row offset-8 col-1 box2">
+    <div class="row col-12 mt-5">
+    </div>
+  </div>
+  <div class="row offset-9 col-1 box3">
+    <div class="row col-12 mt-5">
+    </div>
+  </div>
+
+</div>
