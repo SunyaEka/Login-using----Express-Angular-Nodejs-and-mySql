@@ -16,6 +16,7 @@ export class CreateUserComponent implements OnInit {
   public password;
   public reEnterPassword;
   public confirmTrue: boolean = false;
+  public finalResult: any;
 
   constructor(private authService: AuthenticationService,
               private router: Router
@@ -23,11 +24,6 @@ export class CreateUserComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  public dataInput() {
-    console.log("FINAL DATA:", this.firstName, this.email, this.mobileNumber, this.password, this.reEnterPassword);
-  }
-
   public checkPassword() {
     if(this.password && this.reEnterPassword) {
       if(this.password === this.reEnterPassword) {
@@ -43,6 +39,7 @@ export class CreateUserComponent implements OnInit {
 
   public checkEmail() {
     let emailExpression = '^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$';
+    // this.email.match
     console.log(this.email.match(emailExpression));
   }
   public Create() {
@@ -54,14 +51,9 @@ export class CreateUserComponent implements OnInit {
       "verificationtoken": ""
     };
     this.authService.createUser(data).subscribe((result:any)=> {
+      this.finalResult = result;
       console.log("INSIDE TS:", result);
       if(result.response === "SUCCESS") {
-          // swal({
-          //   type: 'success',
-          //   title: 'Created Successfully',
-          //   showConfirmButton: false,
-          //   timer: 1500
-          // });
           swal.fire("User Successfully Created", '', 'success');
           this.router.navigateByUrl("/login");
       }else {

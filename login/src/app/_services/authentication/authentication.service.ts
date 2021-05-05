@@ -13,7 +13,7 @@ export class AuthenticationService {
   private _tokenPayload;
   public _userId;
 
-  constructor(private httpClient: HttpClient) {
+  constructor(public httpClient: HttpClient) {
     this.adminURL = environment.serverUrl;
    }
 
